@@ -1,12 +1,18 @@
 import React, { FC, Fragment } from 'react';
 import './App.css';
 
-import { Header } from '@components';
+import { 
+  Header,
+  Meals
+  } from '@components';
 
 const App: FC = () => {
   return (
     <Fragment>
-      <Header></Header>
+      <Header />
+      <main>
+        <Meals />
+      </main>
     </Fragment>
   );
 }
