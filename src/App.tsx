@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import './App.css';
 
+import { Header } from '@components';
+
 const App: FC = () => {
   return (
     <div>
