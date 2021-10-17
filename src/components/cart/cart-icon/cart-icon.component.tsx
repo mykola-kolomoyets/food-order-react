@@ -2,7 +2,7 @@ import {FC} from 'react';
 
 import styles from 'header.module.scss';
 
-const Cart: FC = props => {
+const CartIcon: FC = props => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -14,4 +14,4 @@ const Cart: FC = props => {
   );
 };
 
-export { Cart }
+export { CartIcon }

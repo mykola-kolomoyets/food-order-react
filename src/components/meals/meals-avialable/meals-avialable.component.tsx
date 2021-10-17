@@ -12,7 +12,7 @@ import { MealItem } from '@components'
  * Renders MealsAvialable
  */
 const MealsAvialable: FC = () => {
-  const mealsList = DUMMY_MEALS.map(({id, ...mealData}) => <MealItem key={id} {...mealData}/>);
+  const mealsList = DUMMY_MEALS.map(({id, ...mealData}) => <MealItem id={id} key={id} {...mealData}/>);
   return (
     <section className={styles.meals}>
       <Card>

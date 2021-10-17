@@ -2,14 +2,14 @@ import { FC } from 'react';
 
 import styles from './header-cart.module.scss';
 
-import { Cart } from '@components';
+import { CartIcon } from '@components';
 
 
 const HeaderCart: FC = props => {
   return (
     <button className={styles.button}>
       <span className={styles.icon}>
-        <Cart />
+        <CartIcon />
       </span>
 
       <span>

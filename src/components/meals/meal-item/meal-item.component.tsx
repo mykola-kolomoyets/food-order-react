@@ -3,13 +3,16 @@ import styles from './meal-item.module.scss';
 
 import { MealItemProps } from "@utils";
 
+import { MealItemForm } from '@components';
+
 /**
  * Renders MealItem
  */
 const MealItem: FC<MealItemProps> = ({ 
   description,
   name,
-  price
+  price,
+  key
 }) => {
   const newPrice = `$${price.toFixed(2)}`;
   return (
@@ -20,7 +23,7 @@ const MealItem: FC<MealItemProps> = ({
         <div className={styles.price}>{newPrice}</div>
       </section>
       <section>
-
+        <MealItemForm id={key}/>
       </section>
     </li>
   );
