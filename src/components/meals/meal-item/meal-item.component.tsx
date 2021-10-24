@@ -1,7 +1,9 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
 import styles from './meal-item.module.scss';
 
 import { MealItemProps } from "@utils";
+
+import { CartContext } from '@store';
 
 import { MealItemForm } from '@components';
 
@@ -12,9 +14,21 @@ const MealItem: FC<MealItemProps> = ({
   description,
   name,
   price,
-  key
+  key,
+  id
 }) => {
+  const ctx = useContext(CartContext);
+
   const newPrice = `$${price.toFixed(2)}`;
+
+  const handleAddToCart = (amount: string) => {
+    ctx.addItem({
+      amount: +amount,
+      id,
+      name,
+      price
+    });
+  }
   return (
     <li className={styles.meal}>
       <section>
@@ -23,7 +37,7 @@ const MealItem: FC<MealItemProps> = ({
         <div className={styles.price}>{newPrice}</div>
       </section>
       <section>
-        <MealItemForm id={key}/>
+        <MealItemForm id={key} onAddToCart={handleAddToCart}/>
       </section>
     </li>
   );
