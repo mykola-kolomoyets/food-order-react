@@ -14,20 +14,22 @@ const MealItem: FC<MealItemProps> = ({
   description,
   name,
   price,
-  key,
   id
 }) => {
   const ctx = useContext(CartContext);
 
   const newPrice = `$${price.toFixed(2)}`;
 
-  const handleAddToCart = (amount: string) => {
+  const handleAddToCart = (amount: number) => {
     ctx.addItem({
-      amount: +amount,
+      amount,
       id,
       name,
       price
     });
+
+    console.log(ctx.items);
+    
   }
   return (
     <li className={styles.meal}>
@@ -37,7 +39,7 @@ const MealItem: FC<MealItemProps> = ({
         <div className={styles.price}>{newPrice}</div>
       </section>
       <section>
-        <MealItemForm id={key} onAddToCart={handleAddToCart}/>
+        <MealItemForm id={id} onAddToCart={handleAddToCart}/>
       </section>
     </li>
   );

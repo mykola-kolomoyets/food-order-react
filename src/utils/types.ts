@@ -31,7 +31,7 @@ export type InputProps = {
 
 export type MealItemFormProps = {
   id: ID;
-  onAddToCart: (amount: string) => void;
+  onAddToCart: (amount: number) => void;
 }
 
 export type CartItem = {

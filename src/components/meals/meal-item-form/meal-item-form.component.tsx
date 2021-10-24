@@ -2,7 +2,8 @@ import {
   FC, 
   MutableRefObject, 
   useRef, 
-  useState 
+  useState,
+  useEffect
 } from "react";
 
 import styles from './meal-item-form.module.scss';
@@ -14,20 +15,13 @@ import { MealItemFormProps } from '@utils';
  * Renders MealItemForm
  */
 const MealItemForm: FC<MealItemFormProps> = ({id, onAddToCart}) => {
-  const [isAmountValid, setIsAmountValid] = useState<boolean>(false);
   const amountRef = useRef<HTMLInputElement>() as MutableRefObject<HTMLInputElement>;
 
   const handleSubmitClick = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const enteredAmount = +amountRef.current.value;
-    if (enteredAmount < 1 || enteredAmount > 5) {
-      setIsAmountValid(false);
-      return;
-    }
-
-
-    
+    onAddToCart(enteredAmount);
   }
   
   return (
@@ -46,9 +40,7 @@ const MealItemForm: FC<MealItemFormProps> = ({id, onAddToCart}) => {
           defaultValue: '1'
         }}
       />
-      <button
-        disabled={!isAmountValid}
-      >
+      <button type="submit">
         + Add
       </button>
     </form>

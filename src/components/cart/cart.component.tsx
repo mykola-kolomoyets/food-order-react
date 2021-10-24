@@ -1,21 +1,18 @@
-import { FC } from 'react';
+import { FC, useContext } from 'react';
 
 import styles from './cart.module.scss';
 
 import { CartItem, CartProps } from '@utils';
-import { link } from 'fs';
+import { CartContext } from '@store';
 import { Modal } from '@ui';
 
 const Cart: FC<CartProps> = ({onClose}) => {
 
-  const initialCartItems: CartItem[] = [
-    { 
-      id: 'c1', 
-      name: 'Sushi', 
-      amount: 2,
-      price: 19.99
-    }
-  ];
+  const ctx = useContext(CartContext);
+
+  const initialCartItems: CartItem[] = ctx.items;
+
+  const totalAmount = ctx.items?.reduce((curr, item) => curr + item.price, 0);
 
   const cartItems = initialCartItems.map(item => <li key={item.id}>{item.name}</li>);
 
@@ -30,7 +27,7 @@ const Cart: FC<CartProps> = ({onClose}) => {
           Total Amount
         </span>
         <span>
-          35.62
+          ${totalAmount.toFixed(2)}
         </span>
       </div>
 
