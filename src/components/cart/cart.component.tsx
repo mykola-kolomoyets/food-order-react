@@ -4,6 +4,7 @@ import styles from './cart.module.scss';
 
 import { CartItem } from '@utils';
 import { link } from 'fs';
+import { Modal } from '@ui';
 
 const Cart: FC = () => {
 
@@ -19,7 +20,7 @@ const Cart: FC = () => {
   const cartItems = initialCartItems.map(item => <li key={item.id}>{item.name}</li>);
 
   return (
-    <div>
+    <Modal>
       <ul className={styles.cartItems}>
         {cartItems}  
       </ul> 
@@ -42,7 +43,7 @@ const Cart: FC = () => {
           Order
         </button>
       </div>
-    </div>
+    </Modal>
   )
 };
 
