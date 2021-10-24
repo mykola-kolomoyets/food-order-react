@@ -27,9 +27,6 @@ const MealItem: FC<MealItemProps> = ({
       name,
       price
     });
-
-    console.log(ctx.items);
-    
   }
   return (
     <li className={styles.meal}>

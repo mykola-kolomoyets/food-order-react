@@ -12,7 +12,7 @@ const Cart: FC<CartProps> = ({onClose}) => {
 
   const initialCartItems: CartItem[] = ctx.items;
 
-  const totalAmount = ctx.items?.reduce((curr, item) => curr + item.price, 0);
+  const totalAmount = ctx.items?.reduce((curr, item) => curr + (item.price * item.amount), 0);
 
   const cartItems = initialCartItems.map(item => <li key={item.id}>{item.name}</li>);
 
