@@ -2,7 +2,9 @@ import { FC, useContext } from 'react';
 
 import styles from './cart.module.scss';
 
-import { CartItem, CartProps } from '@utils';
+import { CartItem as CartItemComponent} from '@components';
+
+import { CartItem, CartProps, ID } from '@utils';
 import { CartContext } from '@store';
 import { Modal } from '@ui';
 
@@ -13,8 +15,23 @@ const Cart: FC<CartProps> = ({onClose}) => {
   const initialCartItems: CartItem[] = ctx.items;
 
   const totalAmount = ctx.items?.reduce((curr, item) => curr + (item.price * item.amount), 0);
+  
+  const handleAddToCart = (item: CartItem) => {}
 
-  const cartItems = initialCartItems.map(item => <li key={item.id}>{item.name}</li>);
+  const handleRemoveFromCart = (id: ID) => {}
+
+  const cartItems = initialCartItems.map(
+    item => 
+      <CartItemComponent 
+        key={item.id}
+        amount={item.amount}
+        name={item.name}
+        price={item.price}
+        onAdd={handleAddToCart.bind(null, item)}
+        onRemove={handleRemoveFromCart.bind(null, item.id)}
+      />
+  );
+
 
   return (
     <Modal>

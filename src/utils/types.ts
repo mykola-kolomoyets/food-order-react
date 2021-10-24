@@ -69,3 +69,11 @@ export type HeaderProps = {
 export type HeaderCartProps = {
   onModalOpen: () => void;
 }
+
+export type CartItemProps = {
+  price: number;
+  name: string;
+  amount: number;
+  onRemove?: () => void;
+  onAdd?: () => void;
+}
