@@ -3,11 +3,12 @@ import { FC } from 'react';
 import styles from './header-cart.module.scss';
 
 import { CartIcon } from '@components';
+import { HeaderCartProps } from '@utils';
 
 
-const HeaderCart: FC = props => {
+const HeaderCart: FC<HeaderCartProps> = ({onModalOpen}) => {
   return (
-    <button className={styles.button}>
+    <button className={styles.button} onClick={onModalOpen}>
       <span className={styles.icon}>
         <CartIcon />
       </span>

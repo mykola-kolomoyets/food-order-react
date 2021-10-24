@@ -1,13 +1,15 @@
+export type ID =  string | number;
+
 export type Meals = {
-  id: string | number;
+  id: ID;
   name: string;
   description: string;
   price: number
 };
 
 export type MealItemProps = {
-  key: string | number;
-  id: string | number;
+  key: ID;
+  id: ID;
   name: string;
   description: string;
   price: number;
@@ -26,13 +28,30 @@ export type InputProps = {
 }
 
 export type MealItemFormProps = {
-  id: string | number;
+  id: ID;
 }
 
 export type CartItem = {
-  id: string | number;
+  id: ID;
   name: string;
   amount: number;
   price: number;
 }
+export type CartContextType = {
+  items: CartItem[],
+  totalAmount: number,
+  addItem: (item: CartItem) => void,
+  removeItem: (id: ID) => void
+}
 
+export type CartProps = {
+  onClose: () => void;
+}
+
+export type HeaderProps = {
+  onModalOpen: () => void;
+}
+
+export type HeaderCartProps = {
+  onModalOpen: () => void;
+}

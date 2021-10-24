@@ -6,6 +6,7 @@ import {
   Meals,
   Cart
   } from '@components';
+import { CartProvider } from '@store';
 
 const App: FC = () => {
   const [isModalShown, setIsModalShown] = useState<boolean>(false);
@@ -20,13 +21,13 @@ const App: FC = () => {
 
 
   return (
-    <Fragment>
-      {isModalShown && <Cart/>}
-      <Header />
+    <CartProvider>
+      {isModalShown && <Cart onClose={handleCartCloseClick}/>}
+      <Header onModalOpen={handleCartOpenClick}/>
       <main>
         <Meals />
       </main>
-    </Fragment>
+    </CartProvider>
   );
 }
 

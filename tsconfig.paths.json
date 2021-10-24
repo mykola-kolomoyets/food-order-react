@@ -6,7 +6,8 @@
          "@ui": ["./components/ui"],
          "@utils": ["./utils"],
          "@img/*": ["./public/img/*"],
-         "@data": ["./data"]
+         "@data": ["./data"],
+         "@store": ["./store"]
        }
   }
 }

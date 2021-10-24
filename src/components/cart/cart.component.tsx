@@ -2,11 +2,11 @@ import { FC } from 'react';
 
 import styles from './cart.module.scss';
 
-import { CartItem } from '@utils';
+import { CartItem, CartProps } from '@utils';
 import { link } from 'fs';
 import { Modal } from '@ui';
 
-const Cart: FC = () => {
+const Cart: FC<CartProps> = ({onClose}) => {
 
   const initialCartItems: CartItem[] = [
     { 
@@ -35,7 +35,10 @@ const Cart: FC = () => {
       </div>
 
       <div className={styles.actions}>
-        <button className={styles.buttolAlt}>
+        <button 
+          className={styles.buttolAlt}
+          onClick={onClose}
+        >
           Close
         </button>
 
